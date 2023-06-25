@@ -1,7 +1,7 @@
 {
-  "name": "CellLock-Bedrock-Edition/PrisonCell",
-  "description": "None",
-  "type": "library",
+  "name": "your-vendor-name/your-package-name",
+  "description": "Your project description",
+  "type": "project",
   "license": "MIT",
   "authors": [
     {
@@ -9,20 +9,12 @@
       "email": "RageStudioRus@gmail.com"
     }
   ],
-  "require": {
-    "php": "^7.4",
-    "some-package": "^1.0",
-    "another-package": "^2.0"
-  },
+"require": {
+  "poggit-bbpress/BedrockEconomy": "^1.0"
+}
   "autoload": {
     "psr-4": {
-      "Kingbobs\\PrisonCell\\": "src/Kingbobs/PrisonCell/Main.php"
+      "YourVendor\\YourPackage\\": "src/Kingbobs/PrisonCell/Main"
     }
-  },
-  "require-dev": {
-    "phpunit/phpunit": "^9.5"
-  },
-  "scripts": {
-    "test": "phpunit"
-  },
+  }
 }
