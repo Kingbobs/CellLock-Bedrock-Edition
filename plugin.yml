@@ -1,6 +1,6 @@
 name: CellLock
 version: 1.0.0
-main: Kingbobs\CellLock
+main: Kingbobs\PrisonCell\Main
 api: [3.0.0, 4.0.0]
 author: Kingbobs
 description: A powerful prison cell plugin for Minecraft Bedrock Edition servers.
