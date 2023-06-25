@@ -166,13 +166,22 @@ class PrisonCellPlugin extends PluginBase
 
     private function putInCell(Player $player, string $cell)
     {
-        // Put the player in the specified cell
-        // Replace this with your prison cell handling logic
+    $prisonCell = $this->prisonCells[$cell];
+    $player->teleport($prisonCell);
     }
 
-    private function removeFromCell(string $cell)
-    {
-        // Remove the specified cell
-        // Replace this with your prison cell handling logic
+private function removeFromCell(string $cell)
+{
+    if (isset($this->prisonCells[$cell])) {
+        $prisonCell = $this->prisonCells[$cell];
+        
+        // Remove the cell from your system
+        // Example: Remove the block at the prison cell position
+        $level = $prisonCell->getLevel();
+        $level->setBlock($prisonCell, Block::get(Block::AIR));
+        // Unset the prison cell from the array
+        unset($this->prisonCells[$cell]);
     }
+}
+
 }
