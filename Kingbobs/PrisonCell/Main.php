@@ -182,6 +182,86 @@ private function removeFromCell(string $cell)
         // Unset the prison cell from the array
         unset($this->prisonCells[$cell]);
     }
+    
+class CreateCellCommand extends PluginCommand
+{
+    /** @var PrisonCellPlugin */
+    private $plugin;
+
+    public function __construct(string $name, PrisonCellPlugin $plugin)
+    {
+        parent::__construct($name, $plugin);
+        $this->plugin = $plugin;
+        $this->setDescription("Create a prison cell");
+        $this->setPermission("prison.cell.create");
+        $this->setUsage("/createcell <cell>");
+    }
+
+    public function execute(CommandSender $sender, string $commandLabel, array $args)
+    {
+        if (!$sender instanceof Player) {
+            $sender->sendMessage("This command can only be executed in-game.");
+            return;
+        }
+
+        if (!$this->testPermission($sender)) {
+            return;
+        }
+
+        if (count($args) !== 1) {
+            $sender->sendMessage("Usage: " . $this->getUsage());
+            return;
+        }
+
+        $cell = strtolower($args[0]);
+        if (isset($this->plugin->prisonCells[$cell])) {
+            $sender->sendMessage("The prison cell '$cell' already exists.");
+            return;
+        }
+
+        $this->plugin->prisonCells[$cell] = $sender->getPosition();
+        $sender->sendMessage("Prison cell '$cell' created successfully.");
+    }
 }
+
+class RemoveCellCommand extends PluginCommand
+{
+    /** @var PrisonCellPlugin */
+    private $plugin;
+
+    public function __construct(string $name, PrisonCellPlugin $plugin)
+    {
+        parent::__construct($name, $plugin);
+        $this->plugin = $plugin;
+        $this->setDescription("Remove a prison cell");
+        $this->setPermission("prison.cell.remove");
+        $this->setUsage("/removecell <cell>");
+    }
+
+    public function execute(CommandSender $sender, string $commandLabel, array $args)
+    {
+        if (!$sender instanceof Player) {
+            $sender->sendMessage("This command can only be executed in-game.");
+            return;
+        }
+
+        if (!$this->testPermission($sender)) {
+            return;
+        }
+
+        if (count($args) !== 1) {
+            $sender->sendMessage("Usage: " . $this->getUsage());
+            return;
+        }
+
+        $cell = strtolower($args[0]);
+        if (!isset($this->plugin->prisonCells[$cell])) {
+            $sender->sendMessage("The prison cell '$cell' does not exist.");
+            return;
+        }
+
+        $this->plugin->removeFromCell($cell);
+        $sender->sendMessage("Prison cell '$cell' removed successfully.");
+    }
 
 }
