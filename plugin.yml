@@ -1,0 +1,25 @@
+name: CellLock
+version: 1.0.0
+main: Kingbobs\CellLock
+api: [3.0.0, 4.0.0]
+author: Kingbobs
+description: A powerful prison cell plugin for Minecraft Bedrock Edition servers.
+commands:
+  setcell:
+    description: Set up a new prison cell.
+    permission: cell.set
+    usage: /setcell <cell>
+  removecell:
+    description: Remove an existing prison cell.
+    permission: cell.remove
+    usage: /removecell <cell>
+permissions:
+  cell.set:
+    description: Allows players to set up prison cells.
+    default: op
+  cell.remove:
+    description: Allows players to remove prison cells.
+    default: op
+  cell.buy:
+    description: Allows players to buy prison cells.
+    default: true
