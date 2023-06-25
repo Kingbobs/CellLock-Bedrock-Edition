@@ -16,7 +16,7 @@
   },
   "autoload": {
     "psr-4": {
-      "YourVendor\\YourPackage\\": "src/"
+      "Kingbobs\\PrisonCell\\": "src/Kingbobs/PrisonCell/Main.php"
     }
   },
   "require-dev": {
@@ -25,10 +25,4 @@
   "scripts": {
     "test": "phpunit"
   },
-  "repositories": [
-    {
-      "type": "composer",
-      "url": "https://packages.example.com"
-    }
-  ]
 }
