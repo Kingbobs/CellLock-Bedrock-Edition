@@ -1,0 +1,7 @@
+buy_success: "You have bought cell '{cell}' for ${price}."
+buy_insufficient_funds: "You don't have enough money to buy cell '{cell}'."
+remove_success: "Cell '{cell}' removed successfully."
+cell_not_found: "Cell '{cell}' does not exist."
+sign_header: "§a[Buy Cell]"
+sign_price_format: "§7Price: ${price}"
+sign_tap_to_buy: "§7Tap to buy"
