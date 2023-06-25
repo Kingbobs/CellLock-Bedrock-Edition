@@ -9,9 +9,9 @@
       "email": "RageStudioRus@gmail.com"
     }
   ],
-"require": {
-  "poggit-bbpress/BedrockEconomy": "^1.0"
-}
+  "require": {
+    "poggit-bbpress/BedrockEconomy": "^1.0"
+  },
   "autoload": {
     "psr-4": {
       "YourVendor\\YourPackage\\": "src/Kingbobs/PrisonCell/Main"
