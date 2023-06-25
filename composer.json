@@ -10,7 +10,7 @@
     }
   ],
   "require": {
-    "poggit-bbpress/BedrockEconomy": "^1.0"
+    "poggit-bbpress/bedrockeconomy": "^1.0"
   },
   "autoload": {
     "psr-4": {
